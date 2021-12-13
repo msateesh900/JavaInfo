@@ -1,0 +1,196 @@
+
+
+
+
+class player
+{
+name,
+Score
+}
+
+
+
+List<Integer> ll= array.stream().sorted(c).collect(Collectors.toList());
+
+Sort player by there score in desc order
+
+
+}
+}
+
+
+
+
+
+class ReverseString{
+
+
+public static void main(String[] args){
+
+String str ="Sateesh";
+String reverse="";
+
+for(int i=str.length();i>=0;i--)
+reverse=reverse+str.charAt(i);
+
+
+System.out.println("reverse of string"+str"
+}
+}
+
+
+
+
+
+
+var arr = [10, 12, 15, 21];
+for (var i = 0; i < arr.length; i++) {
+ setTimeout(function() {
+   console.log('Index: ' + i + ', element: ' + arr[i]);
+ }, 3000);
+}
+
+0 10
+
+1 12
+
+2 15
+
+3 21
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(function() {
+    console.log(1); 
+    setTimeout(function(){console.log(2)}, 1000); 
+    setTimeout(function(){console.log(3)}, 0); 
+    console.log(4);
+})();
+
+
+
+
+1 
+4
+3
+2 every 2 ms
+
+
+
+
+
+
+
+
+
+
+
+func(e){
+e.stopPropagation();
+
+console.log(e.target.name.value);
+
+//console.log(e.target.name.value);
+
+
+let name= getElementById('name');
+let getElementById('pswd');
+}
+
+
+<form onSubmit=func(e)>
+<label>User Name:</label>
+<input type="text" id="name" name="uname" value="">
+<label>Password:<label>
+<input type="password" id="pswd" name="pswd" value="">
+<button type="Submit">submit</button>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+table emp
+
+empid,empname,empSalary,desg,mngrid,deptid;---------1,2,3,4
+
+
+query empname with highest salary
+
+orderby salary 
+
+
+
+select empName,mngrName from emp where 
+
+
+
+
+
+where emp.deptid groupby emp.empName
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

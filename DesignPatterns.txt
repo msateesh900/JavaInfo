@@ -1,0 +1,40 @@
+
+-----------Template Design pattern----------
+
+
+JDBC
+
+1)  create the connection/sesion
+2) get the connetion/get session from sessionfactory
+30) prepare the statemtn
+exicute the staement
+close the connetion
+
+
+insert
+update 
+delete
+
+
+JdbcTemplate/HibernateTemplate
+
+
+
+jdbc.insert
+
+
+
+-------------------------------------------------------------------------------------------
+Excel files and xml files
+
+files{
+      Connetion;
+	  file open
+	  file close;
+
+
+}
+
+Excel file extends file
+
+XMLFile extends file
