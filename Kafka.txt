@@ -1,8 +1,86 @@
 
+Apache Kafka:
+
+Apache Kafka is a distributed streaming platform based on publish/subscribe messaging system. Another term which is used for Kafka is “distributed commit log”.
+
+<dependency>
+	<groupId>org.springframework.kafka</groupId>
+	<artifactId>spring-kafka</artifactId>
+</dependency>
+
+Kafka Producer:
+
+@Configuration
+public class KakfaConfiguration {
+
+    @Bean
+    public ProducerFactory<String, User> producerFactory() {
+        Map<String, Object> config = new HashMap<>();
+
+        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
+        config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+
+        return new DefaultKafkaProducerFactory<>(config);
+    }
 
 
+    @Bean
+    public KafkaTemplate<String, User> kafkaTemplate() {
+        return new KafkaTemplate<>(producerFactory());
+    }
 
-Kafka:
+
+}
+
+User Model:
+
+public class User {
+
+    private String name;
+    private String dept;
+    private Long salary;
+
+    public User(String name, String dept, Long salary) {
+        this.name = name;
+        this.dept = dept;
+        this.salary = salary;
+    }
+}
+
+Kafka User  Resource:
+
+
+@RestController
+@RequestMapping("kafka")
+public class UserResource {
+
+    @Autowired
+    private KafkaTemplate<String, User> kafkaTemplate;
+
+    private static final String TOPIC = "Kafka_Example";
+
+    @GetMapping("/publish/{name}")
+    public String post(@PathVariable("name") final String name) {
+
+        kafkaTemplate.send(TOPIC, new User(name, "Technology", 12000L));
+
+        return "Published successfully";
+    }
+}
+
+Start Zookeeper:bin/zookeeper-server-start.sh config/zookeeper.properties
+
+Start Kafka Server:bin/kafka-server-start.sh config/server.properties
+
+Create Kafka Topic : bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic Kafka_Example
+
+Consume from the Kafka Topic via Console :bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic Kafka_Example --from-beginning
+
+Publish message via WebService:
+http://localhost:8081/kafka/publish/Sam
+http://localhost:8081/kafka/publish/Peter
+
 
 
 Start Zookeeper: bin/zookeeper-server-start.sh config/zookeeper.properties
